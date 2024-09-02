@@ -16,9 +16,20 @@ public class ClientDirectoryBackendApplication {
 		String apiKey = "demo";
 		OpenAiChatModel model = OpenAiChatModel.withApiKey(apiKey);
 
-		String answer = model.generate("What date is today?");
+		String answer = model.generate("Can you extract a new client name, email, phone number, and address from this?" +
+				"Dear Attorney Kudo,\n" +
+				"\n" +
+				"I would like to retain you for the green card application. Here is my address:\n" +
+				"\n" +
+				"Koichi Nakata\n" +
+				"\n" +
+				"2030 Fell Street\n" +
+				"San Francisco, CA 94117\n" +
+				"\n" +
+				"737-287-4451");
+
 		System.out.println(answer);
-		
+
 		SpringApplication.run(ClientDirectoryBackendApplication.class, args);
 
 		try {
