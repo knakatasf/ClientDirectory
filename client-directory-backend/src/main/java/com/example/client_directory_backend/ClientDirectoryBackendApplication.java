@@ -30,7 +30,7 @@ public class ClientDirectoryBackendApplication {
 
 		System.out.println(answer);
 
-		SpringApplication.run(ClientDirectoryBackendApplication.class, args);
+		//SpringApplication.run(ClientDirectoryBackendApplication.class, args);
 
 		try {
 			Connection conn = DriverManager.getConnection(System.getenv("DB_URL"),

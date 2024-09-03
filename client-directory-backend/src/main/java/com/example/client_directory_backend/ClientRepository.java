@@ -1,14 +1,18 @@
 package com.example.client_directory_backend;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ClientRepository extends JpaRepository<Client, Long> {
-    void insertClient(String name, String email, String phoneNumber, String address);
-    List<Client> findClientByName(String name);
-    List<Client> findClientByEmail(String email);
+public interface ClientRepository extends CrudRepository<Client, Long> {
 
+    List<Client> findByFirstname(String firstname);
+    List<Client> findByLastname(String lastname);
+    List<Client> findByEmail(String email);
+    List<Client> findByPhoneNumber(String phoneNumber);
+
+    // Find clients where the address matches a pattern
+    List<Client> findByAddressLike(String partialAddress);
 }
