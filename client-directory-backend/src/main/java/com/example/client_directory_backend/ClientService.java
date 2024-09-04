@@ -23,18 +23,18 @@ public class ClientService {
     }
 
     public List<Client> getClientByLastname(String lastname) {
-        return clientRepository.findByFirstname(lastname);
+        return clientRepository.findByLastname(lastname);
     }
 
     public List<Client> getClientByEmail(String email) {
-        return clientRepository.findByFirstname(email);
+        return clientRepository.findByEmail(email);
     }
 
     public List<Client> getClientByPhoneNumber(String phoneNumber) {
-        return clientRepository.findByFirstname(phoneNumber);
+        return clientRepository.findByPhoneNumber(phoneNumber);
     }
 
     public List<Client> getClientByPartialAddress(String partialAddress) {
-        return clientRepository.findByFirstname(partialAddress);
+        return clientRepository.findByAddressLike(partialAddress);
     }
 }
