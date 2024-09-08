@@ -1,10 +1,7 @@
 package com.example.client_directory_backend;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
@@ -18,8 +15,21 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    @PostMapping("/process")
-    public String processInput(@RequestBody ClientRequest request) {
-        return llmService.processInput(request.getAction(), request.getInput());
-    }
+//    @PostMapping("/process")
+//    public String processClientRequest(@RequestParam("action") String action, @RequestBody String input) {
+//        // Use LLMService to extract client data from the input
+//        ExtractedData extractedData = llmService.processInput(input);
+//
+//        // Based on action, invoke ClientService methods
+//        switch (action.toLowerCase()) {
+//            case "insert":
+//                return clientService.insertClient(extractedData);
+//            case "lookup":
+//                return clientService.lookupClient(extractedData);
+//            case "update":
+//                return clientService.updateClient(extractedData);
+//            default:
+//                return "Invalid action!";
+//        }
+//    }
 }
