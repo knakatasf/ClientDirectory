@@ -1,11 +1,9 @@
 package com.example.client_directory_backend;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "client")
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,12 +44,12 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "firstname='" + firstname + '\'' +
-                ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", address='" + address + '\'' +
-                '}';
+        StringBuilder res = new StringBuilder();
+        res.append("Client information:\n" +
+                "Name:\t" + getLastname() + ", " + getFirstname() +
+                "Email:\t" + getEmail() +
+                "Phone:\t" + getPhoneNumber() +
+                "Address:\n" + getAddress() + System.lineSeparator());
+        return res.toString();
     }
 }

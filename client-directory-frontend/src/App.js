@@ -17,7 +17,7 @@ function ClientInteraction() {
     event.preventDefault();
 
     try {
-      const response = await axios.post('/api/process', {
+      const response = await axios.post('http://localhost:8080/api/process', {
         action: action,
         input: chatInput
       });
@@ -60,7 +60,7 @@ function ClientInteraction() {
           />
           Update
         </label>
-        <br />
+        <br/>
         <textarea
             rows="10"
             cols="50"
@@ -68,7 +68,7 @@ function ClientInteraction() {
             onChange={handleChatInputChange}
             placeholder="Paste client information here..."
         />
-        <br />
+        <br/>
         <button onClick={handleSubmit}>Submit</button>
       </div>
   );

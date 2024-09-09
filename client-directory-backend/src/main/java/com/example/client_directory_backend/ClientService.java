@@ -18,8 +18,12 @@ public class ClientService {
         return clientRepository.save(client);
     }
 
-    public List<Client> getClientByPartialName(String partialName) {
-        return clientRepository.findByNameLike(partialName);
+    public List<Client> getClientByFirstname(String firstname) {
+        return clientRepository.findByFirstname(firstname);
+    }
+
+    public List<Client> getClientByLastname(String lastname) {
+        return clientRepository.findByLastname(lastname);
     }
 
     public List<Client> getClientByEmail(String email) {
