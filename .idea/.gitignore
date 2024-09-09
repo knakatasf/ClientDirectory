@@ -7,4 +7,4 @@
 /dataSources/
 /dataSources.local.xml
 
-client-directory-backend/src/main/java/keys/ApiKeys.java
+/src/main/java/keys/
