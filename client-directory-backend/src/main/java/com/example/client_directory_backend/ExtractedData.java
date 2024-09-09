@@ -1,20 +1,14 @@
 package com.example.client_directory_backend;
 
 public class ExtractedData {
-    private String firstname;
-    private String lastname;
+    private String name;
     private String email;
     private String phoneNumber;
     private String address;
 
-    public String getFirstname() { return firstname; }
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() { return lastname; }
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public String getName() { return name; }
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() { return email; }

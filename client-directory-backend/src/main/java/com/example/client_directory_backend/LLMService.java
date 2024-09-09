@@ -1,19 +1,24 @@
 package com.example.client_directory_backend;
 
+
+import dev.langchain4j.memory.ChatMemory;
 import dev.langchain4j.model.chat.ChatLanguageModel;
+import dev.langchain4j.model.input.structured.StructuredPrompt;
 import dev.langchain4j.model.openai.OpenAiChatModel;
+import dev.langchain4j.model.output.structured.Description;
+import dev.langchain4j.service.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 //@Service
 public class LLMService {
-    ChatLanguageModel cl;
-    private static final String PROMPT =
-                    "Please extract the following information from the text provided\n:" +
-                    "1. Name\n2. Email address\n3. Phone number \n4. Address\n\n" +
-                    "If any of these details are not present in the text, use \"n/a\" for those fields." +
-                    "Provide the information in the following format, separated by semi-colons:" +
-                    "Name;Email address;Phone number;Address\n\n" +
-                    "Here is the text to process:";
+
+    interface ClientExtractor {
+        @UserMessage("Extract information about a client from {{it}}")
+        Client extractClientFrom(String text);
+    }
 
     public static void main(String[] args) {
         String input = "Koichi Nakata\n" +
@@ -34,19 +39,11 @@ public class LLMService {
                 "\n" +
                 "Thank you,\n" +
                 "Koichi\n";
+        ChatLanguageModel model = OpenAiChatModel.withApiKey("sk-2ZpgruvdxExLmzsfvM6vlg0xJCMqsH9J6ISkwJRF9LT3BlbkFJZyvpMm8ObSDzi-apfXhXkTGdiGRSzCC2GMix3QrdAA");
+        ClientExtractor extractor = AiServices.create(ClientExtractor.class, model);
+        Client client = extractor.extractClientFrom(input);
 
-        ExtractedData data = new ExtractedData();
-        ChatLanguageModel cl = OpenAiChatModel.withApiKey("demo");
-        String finalPrompt = PROMPT + input;
-        String answer = cl.generate(finalPrompt);
-
-        System.out.println(answer);
+        System.out.println(client);
     }
 
-    public ExtractedData processInput(String input) {
-
-
-
-        return null;
-    }
 }

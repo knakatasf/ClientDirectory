@@ -20,27 +20,38 @@ public class Client {
 
     public Client(String firstname, String lastname, String email, String phoneNumber, String address) {
         setFirstname(firstname);
-        setLastname(lastname);
+        setLasename(lastname);
         setEmail(email);
         setPhoneNumber(phoneNumber);
         setAddress(address);
     }
 
     public Long getId() { return id; }
-    private void setId(long id) { this.id = id; }
+    public void setId(long id) { this.id = id; }
 
     public String getFirstname() { return firstname; }
-    private void setFirstname(String firstname) { this.firstname = firstname; }
+    public void setFirstname(String firstname) { this.firstname = firstname; }
 
     public String getLastname() { return lastname; }
-    private void setLastname(String lastname) { this.lastname = lastname; }
+    public void setLasename(String lastname) { this.lastname = lastname; }
 
     public String getEmail() { return email; }
-    private void setEmail(String email) { this.email = email; }
+    public void setEmail(String email) { this.email = email; }
 
     public String getPhoneNumber() { return phoneNumber; }
-    private void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
     public String getAddress() { return address; }
     public void setAddress(String address) { this.address = address; }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

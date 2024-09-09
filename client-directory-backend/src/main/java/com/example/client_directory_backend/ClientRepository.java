@@ -8,11 +8,8 @@ import java.util.List;
 @Repository
 public interface ClientRepository extends CrudRepository<Client, Long> {
 
-    List<Client> findByFirstname(String firstname);
-    List<Client> findByLastname(String lastname);
+    List<Client> findByNameLike(String name);
     List<Client> findByEmail(String email);
     List<Client> findByPhoneNumber(String phoneNumber);
-
-    // Find clients where the address matches a pattern
     List<Client> findByAddressLike(String partialAddress);
 }
