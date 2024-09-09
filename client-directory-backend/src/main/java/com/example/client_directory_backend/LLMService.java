@@ -39,7 +39,7 @@ public class LLMService {
                 "\n" +
                 "Thank you,\n" +
                 "Koichi\n";
-        ChatLanguageModel model = OpenAiChatModel.withApiKey("demo");
+        //ChatLanguageModel model = OpenAiChatModel.withApiKey("demo");
         ClientExtractor extractor = AiServices.create(ClientExtractor.class, model);
         Client client = extractor.extractClientFrom(input);
 
