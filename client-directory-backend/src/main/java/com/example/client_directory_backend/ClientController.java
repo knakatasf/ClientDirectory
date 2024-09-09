@@ -29,7 +29,9 @@ public class ClientController {
             clientService.insertClient(client);
             System.out.println("Insertion successful!");
             return ResponseEntity.ok("Insertion successful!");
+        } else {
+            System.out.println("Still implementing..");
+            return null;
         }
-        return null;
     }
 }
